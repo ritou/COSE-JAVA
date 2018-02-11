@@ -52,6 +52,7 @@ public class MAC0MessageTest {
         msg.addAttribute(HeaderKeys.Algorithm, AlgorithmID.HMAC_SHA_256.AsCBOR(), Attribute.PROTECTED);
         msg.SetContent(rgbContent);
         msg.Create(rgbKey256);
+	System.out.println(Base64.getEncoder().encodeToString(rgbKey256));
         
         byte[] rgbMsg = msg.EncodeToBytes();
         
