@@ -177,7 +177,7 @@ public abstract class MacCommon extends Message {
         HMac hmac = new HMac(digest);
         KeyParameter key = new KeyParameter(rgbKey);
         byte[] toDigest = BuildContentBytes();
-	System.out.println(toDigest)
+	System.out.println(toDigest);
 
         byte[] resBuf = new byte[hmac.getMacSize()];
 
