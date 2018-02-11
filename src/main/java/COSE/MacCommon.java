@@ -109,6 +109,7 @@ public abstract class MacCommon extends Message {
         if (externalData != null) obj.Add(CBORObject.FromObject(externalData));
         else obj.Add(CBORObject.FromObject(new byte[0]));
         obj.Add(rgbContent);
+        System.out.println(obj);
         
         return obj.EncodeToBytes();
     }
