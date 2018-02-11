@@ -11,6 +11,7 @@ import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.junit.*;
 import static org.junit.Assert.*;
 import org.junit.rules.ExpectedException;
+import java.util.Base64;
 
 /**
  *
@@ -54,6 +55,7 @@ public class MAC0MessageTest {
         
         byte[] rgbMsg = msg.EncodeToBytes();
         
+	System.out.println(Base64.getEncoder().encodeToString(rgbMsg));
         msg = (MAC0Message) Message.DecodeFromBytes(rgbMsg, MessageTag.MAC0);
         boolean contentNew = msg.Validate(rgbKey256);
         assertTrue(contentNew);
