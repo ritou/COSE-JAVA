@@ -19,6 +19,7 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.engines.AESFastEngine;
 import org.bouncycastle.crypto.macs.CBCBlockCipherMac;
 import java.security.SecureRandom;
+import java.util.Base64;
 
 
 /**
@@ -177,7 +178,7 @@ public abstract class MacCommon extends Message {
         HMac hmac = new HMac(digest);
         KeyParameter key = new KeyParameter(rgbKey);
         byte[] toDigest = BuildContentBytes();
-	System.out.println(toDigest);
+	System.out.println(Base64.getEncoder().encodeToString(toDigest));
 
         byte[] resBuf = new byte[hmac.getMacSize()];
 
