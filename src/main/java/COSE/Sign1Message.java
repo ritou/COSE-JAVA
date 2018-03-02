@@ -76,6 +76,8 @@ public class Sign1Message extends SignCommon {
         obj.Add(externalData);
         obj.Add(rgbContent);
         
+	System.out.println(obj);
+	System.out.println(key);
         rgbSignature = computeSignature(obj.EncodeToBytes(), key);
     }
     
