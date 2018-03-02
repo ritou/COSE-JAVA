@@ -54,8 +54,8 @@ public class Sign1MessageTest {
         
         keyPublic = (ECPublicKeyParameters) p1.getPublic();
         keyPrivate = (ECPrivateKeyParameters) p1.getPrivate();
-	System.out.println(keyPublic)
-	System.out.println(keyPrivate)
+	System.out.println(keyPublic);
+	System.out.println(keyPrivate);
         
     byte[] rgbX = keyPublic.getQ().normalize().getXCoord().getEncoded();
     byte[] rgbY = keyPublic.getQ().normalize().getYCoord().getEncoded();
@@ -109,7 +109,7 @@ public class Sign1MessageTest {
         msg.SetContent(rgbContent);
         msg.sign(cnKeyPrivate);
         byte[] rgbMsg = msg.EncodeToBytes();
-	System.out.println(Base64.getEncoder().encodeToString(rgbMsg))
+	System.out.println(Base64.getEncoder().encodeToString(rgbMsg));
         
         msg = (Sign1Message) Message.DecodeFromBytes(rgbMsg, MessageTag.Sign1);
         boolean f = msg.validate(cnKeyPublic);
