@@ -224,6 +224,7 @@ public class Signer extends Attribute {
             case ECDSA_512:
             {
                 digest.update(rgbToBeSigned, 0, rgbToBeSigned.length);
+	        System.out.println(digest.getDigestSize());
                 byte[] rgbDigest = new byte[digest.getDigestSize()];
                 digest.doFinal(rgbDigest, 0);
                 
@@ -243,7 +244,8 @@ public class Signer extends Attribute {
                 int cb = (p.getCurve().getFieldSize() + 7)/8;
                 byte[] r = sig[0].toByteArray();
                 byte[] s = sig[1].toByteArray();
-                
+
+	        System.out.println(cb*2);
                 byte[] sigs = new byte[cb*2];
                 int cbR = min(cb,r.length);
                 System.arraycopy(r, r.length - cbR, sigs, cb - cbR, cbR);

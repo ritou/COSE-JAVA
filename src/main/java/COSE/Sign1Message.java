@@ -8,6 +8,7 @@ package COSE;
 import com.upokecenter.cbor.CBORObject;
 import com.upokecenter.cbor.CBORType;
 import org.bouncycastle.crypto.CipherParameters;
+import java.util.Base64;
 
 /**
  * The Sign1Message class implements the COSE_Sign1 object.
@@ -216,6 +217,7 @@ public class Sign1Message extends SignCommon {
         obj.Add(objUnprotected);
         if (emitContent) obj.Add(rgbContent);
         else obj.Add(null);
+
         obj.Add(rgbSignature);
         
         return obj;
