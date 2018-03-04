@@ -227,6 +227,7 @@ public class Signer extends Attribute {
 	        System.out.println(digest.getDigestSize());
                 byte[] rgbDigest = new byte[digest.getDigestSize()];
                 digest.doFinal(rgbDigest, 0);
+	        System.out.println(digest);
                 
                 cn = cnKey.get(KeyKeys.KeyType);
                 if ((cn == null) || (cn != KeyKeys.KeyType_EC2)) throw new CoseException("Must use key with key type EC2");
@@ -240,6 +241,7 @@ public class Signer extends Attribute {
                 ECDSASigner ecdsa = new ECDSASigner();
                 ecdsa.init(true, privKey);
                 BigInteger[] sig = ecdsa.generateSignature(rgbDigest);
+	        System.out.println(sig);
                 
                 int cb = (p.getCurve().getFieldSize() + 7)/8;
                 byte[] r = sig[0].toByteArray();
